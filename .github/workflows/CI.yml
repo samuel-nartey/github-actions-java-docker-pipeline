@@ -60,4 +60,4 @@ jobs :
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/app:latest
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/app:${{ github.sha }}
