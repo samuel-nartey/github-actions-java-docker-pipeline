@@ -17,6 +17,9 @@ jobs :
           java-version: '22'
           distribution: 'temurin'
 
+      - name: make the graddle file executable
+        run: chmod +x gradlew
+
       - name: Build with Gradle
         run: ./gradlew clean build
 
