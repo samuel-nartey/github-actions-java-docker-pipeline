@@ -1,13 +1,20 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.3.2' // use a stable Spring Boot version
+    id 'org.springframework.boot' version '3.3.2' // stable Spring Boot
     id 'io.spring.dependency-management' version '1.1.3'
 }
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(22)
+        languageVersion = JavaLanguageVersion.of(22)  // Use Java 22
     }
+}
+
+// Set project version for JAR naming
+version = '1.0-SNAPSHOT'   // Now Gradle will append this to the JAR
+// Optional: you can override the JAR base name if you want
+jar {
+    archiveBaseName = 'my-app'
 }
 
 repositories {
@@ -18,14 +25,14 @@ dependencies {
     // Spring Boot starter
     implementation 'org.springframework.boot:spring-boot-starter'
 
-    // SLF4J logging (already included via Spring Boot starter, optional if needed separately)
+    // SLF4J logging (Spring Boot starter already includes logging)
     implementation 'org.slf4j:slf4j-api:2.0.9'
     implementation 'org.slf4j:slf4j-simple:2.0.9' // or logback-classic
 
     // For @PostConstruct annotation
     implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1'
 
-    // For testing
+    // Testing
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'junit:junit:4.13.2'
 }
