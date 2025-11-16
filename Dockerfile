@@ -5,7 +5,7 @@ FROM eclipse-temurin:22-jre-alpine
 EXPOSE 8080
 
 # Copy the Gradle-built JAR into the image
-COPY ./build/libs/my-app-1.0-SNAPSHOT.jar /usr/app/
+COPY ./build/libs/my-gradle-project-1.0-SNAPSHOT.jar /usr/app/
 WORKDIR /usr/app
 
 # Run the application
