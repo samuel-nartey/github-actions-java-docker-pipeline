@@ -1,15 +1,11 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.3.4'
-    id 'io.spring.dependency-management' version '1.1.4'
 }
 
-group = 'com.example'
-version = '1.0.0'
-
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(22)  // Ensure Java 22
+    }
 }
 
 repositories {
@@ -17,24 +13,13 @@ repositories {
 }
 
 dependencies {
-    // Spring Boot Web Starter
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    
-    // Logging (included with starter-web, but explicit for clarity)
-    implementation 'org.springframework.boot:spring-boot-starter-logging'
-    
-    // Jakarta annotations (for PostConstruct)
+    // For @PostConstruct annotation
     implementation 'jakarta.annotation:jakarta.annotation-api:2.1.1'
 
-    // Testing
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // For testing
     testImplementation 'junit:junit:4.13.2'
 }
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
-}
-
-tasks.withType(Test) {
-    useJUnitPlatform()
 }
