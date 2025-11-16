@@ -29,7 +29,7 @@ jobs:
         distribution: 'temurin'
         
     - name: make the graddle file executable
-    - run: chmod + x graddle
+      run: chmod + x gradlew
 
 
     # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
