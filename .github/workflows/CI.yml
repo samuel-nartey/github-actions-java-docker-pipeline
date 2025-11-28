@@ -17,6 +17,7 @@ jobs :
           java-version: '22'
           distribution: 'temurin'
 
+
       - name: make the graddle file executable
         run: chmod +x gradlew
 
